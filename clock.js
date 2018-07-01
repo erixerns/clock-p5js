@@ -7,6 +7,7 @@ function setup(){
 }
 
 function draw(){
+  background(255);
   clock.render();
 }
 
@@ -25,8 +26,8 @@ Clock = function(){
   this.render = function(){
     this.updateSecond();
     this.drawClockFace();
-    this.drawHands();
     this.drawMainPoints();
+    this.drawHands();
   };
 
   this.drawHands=function(){
@@ -39,9 +40,16 @@ Clock = function(){
     push();
     stroke(0);
     strokeWeight(5);
+    // 12 o clock
     line(this.x+sin(0)*70, this.y+cos(PI)*70, this.x+sin(0)*70, this.y+cos(PI)*70+15);
     strokeWeight(2);
-    line(this.x+sin(0)*70, this.y+cos(PI)*70, this.x+sin(0)*70, this.y+cos(PI)*70+15);
+    stroke(100);
+    // 3 o clock
+    line(this.x+sin(90)*70-3,this.y+sin(0)*70,this.x+sin(90)*70+12,this.y+sin(0)*70);
+    // 6 o clock
+    line(this.x+sin(PI)*70,this.y+sin(90)*70-5,this.x+sin(PI)*70,this.y+cos(0)*70);
+    // 9 o clock
+    line(this.x+cos(PI)*70+10,this.y+sin(0)*70,this.x+cos(PI)*70-5, this.y+sin(0)*70);
     pop();
   };
 
