@@ -9,7 +9,6 @@ function setup(){
 function draw(){
   background(0,1);
   clock.render();
-
 }
 
 var tempX = 1;
@@ -44,7 +43,7 @@ Clock = function(){
     pop();
   };
   this.updateSecond = function(){
-    if(frameCount%1 == 0)
+    if(frameCount%1 === 0)
       this.second+=1/60;
   };
 
@@ -71,7 +70,7 @@ Clock = function(){
     t=map(t, 0, 60, 0, 2*PI);
     ellipse(this.x+sin(t)*this.pos,this.y+cos(t+PI)*this.pos,this.size,this.size);
     //line(this.x, this.y, this.x+sin(t)*70, this.y+cos(t+PI)*70);
-    if(t==0)
+    if(t===0)
       this.updateHour();
     pop();
   };
